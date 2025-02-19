@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="card-outside"*ngFor="let address of allRelatedAddress">
+    <div class="card">
+        <h5 class="card-header">{{address.type}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{address.name}}</h5>
+          <p class="card-text">{{address.display_name}}</p>
+          <a href="#" class="btn btn-primary">Get in detail</a>
+        </div>
+      </div>
+</div>
