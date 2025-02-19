@@ -14,6 +14,7 @@ export class FilterPageComponent implements OnInit{
   city: string = '';
   country: string = '';
   allRelatedAddress:relatedAddressInterface[] = [];
+  dataAvailable : String = "searching";
   constructor(private activatedRoute:ActivatedRoute,private route:Router,private http:HttpClient){
 
   }
@@ -41,10 +42,19 @@ export class FilterPageComponent implements OnInit{
     this.http.post<relatedAddressInterface[]>(`https://locationdetails-deployment.onrender.com/filter`,completeAddress).subscribe(
       (data)=> {
         this.allRelatedAddress = data;
+        if(this.allRelatedAddress.length === 0){
+          this.dataAvailable = "not found";
+        }
+        else{
+          this.dataAvailable = "found"
+        }
         console.log(data)
       }
     )
   }
-  
+  inDetail(lat:String,lon:String){
+    this.route.navigate(["/detail"],{queryParams:{"lat":lat,"lon":lon}})
+
+  }
 
 }

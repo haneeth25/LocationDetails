@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="whole-details">
+  <div class="top-part">
+    <!-- Location Details -->
+    <div class="details card">
+      <div class="card-body">
+        <h5 class="card-title">{{weatherAndLocation?.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{weatherAndLocation?.type}}</h6>
+        <p class="card-text">{{weatherAndLocation?.display_name}}</p>
+      </div>
+    </div>
+
+    <!-- Weather Details -->
+    <div class="weather_details card">
+      <ul class="list-group">
+        <li class="list-group-item active"><strong>Temperature Details:</strong></li>
+        <li class="list-group-item">Temperature: {{weatherAndLocation?.temp}} K</li>
+        <li class="list-group-item">Min Temperature: {{weatherAndLocation?.temp_min}} K</li>
+        <li class="list-group-item">Max Temperature: {{weatherAndLocation?.temp_max}} K</li>
+        <li class="list-group-item">Cloud Cover: {{weatherAndLocation?.clouds}}%</li>
+        <li class="list-group-item"> Sunrise: {{ weatherAndLocation?.sunrise}}</li>
+        <li class="list-group-item">Sunset: {{weatherAndLocation?.sunset}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Nearby Places -->
+  <h5>Nearby Places:</h5>
+
+  <!-- Filter Dropdown -->
+  <div class="filter-container">
+    <label for="amenitySelect" class="form-label">Filter by Amenity:</label>
+    <select id="amenitySelect" [(ngModel)]="selectedAmenity" (change)="filterPlaces()" class="form-select">
+      <option value="">All</option>
+      <option *ngFor="let amenity of allAmenity" [value]="amenity">{{ amenity }}</option>
+    </select>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="!fetchingDone" class="loading-spinner">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="fetchingDone && nearByPlaces.length === 0" class="text-center">
+    <p class="text-muted">No results found.</p>
+  </div>
+  
+  <!-- Places Cards -->
+  <div class="places-container">
+    <div class="card-outside" *ngFor="let nearByPlace of filteredPlaces">
+      <div class="card">
+        <div class="card-header">
+          {{nearByPlace.amenity}}
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{nearByPlace.name}}</p>
+            <footer class="blockquote-footer">{{nearByPlace.distance}} KM</footer>
+            <a [href]="'https://www.google.com/maps?q=' + nearByPlace.lat + ',' + nearByPlace.lon" target="_blank" class="btn btn-primary">Open in Google Maps</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

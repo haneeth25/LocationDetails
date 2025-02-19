@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPageComponent } from './filter-page/filter-page.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FilterPageComponent
+    FilterPageComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

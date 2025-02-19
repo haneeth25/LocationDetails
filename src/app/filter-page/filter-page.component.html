@@ -5,7 +5,19 @@
         <div class="card-body">
           <h5 class="card-title">{{address.name}}</h5>
           <p class="card-text">{{address.display_name}}</p>
-          <a href="#" class="btn btn-primary">Get in detail</a>
+          <a (click)="inDetail(address.lat,address.lon)" class="btn btn-primary">Get in detail</a>
         </div>
       </div>
+</div>
+
+<div *ngIf="dataAvailable == 'searching'" class="loading-spinner">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="text-center mt-4" *ngIf="dataAvailable == 'not found'">
+  <div class="alert alert-warning mt-3" role="alert">
+    <strong>No results found.</strong> Please refine your search.
+  </div>
 </div>
