@@ -38,7 +38,7 @@ export class FilterPageComponent implements OnInit{
       "country":this.country
     }
 
-    this.http.post<relatedAddressInterface[]>(`http://localhost:8080/filter`,completeAddress).subscribe(
+    this.http.post<relatedAddressInterface[]>(`https://locationdetails-deployment.onrender.com/filter`,completeAddress).subscribe(
       (data)=> {
         this.allRelatedAddress = data;
         console.log(data)
