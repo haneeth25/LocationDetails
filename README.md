@@ -56,5 +56,4 @@ Developed by [Haneeth](https://github.com/haneeth25). Feel free to contribute an
 
 ---
 
-Let me know if you need any changes!
 
