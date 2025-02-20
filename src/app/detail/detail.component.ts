@@ -43,6 +43,11 @@ export class DetailComponent implements OnInit{
         this.locationService.getWeatherAndLocation(this.lat,this.lon).subscribe(
           (data) => {
             this.weatherAndLocation = data
+            this.weatherAndLocation.temp = Number((Number(this.weatherAndLocation.temp) - 273.15).toFixed(2));
+            this.weatherAndLocation.temp_max = Number((Number(this.weatherAndLocation.temp_max) - 273.15).toFixed(2));
+            this.weatherAndLocation.temp_min = Number((Number(this.weatherAndLocation.temp_min) - 273.15).toFixed(2));
+            this.weatherAndLocation.sunrise = new Date(this.weatherAndLocation.sunrise*1000).toLocaleString();      
+            this.weatherAndLocation.sunset = new Date(this.weatherAndLocation.sunset*1000).toLocaleString();  
           }
         )
 

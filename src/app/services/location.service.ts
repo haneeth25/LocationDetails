@@ -7,7 +7,6 @@ import { weatherAndLocationInterface } from '../models/weatherAndLocationInterfa
   providedIn: 'root'
 })
 export class LocationService {
-
   constructor(private http:HttpClient) { }
 
   getNearbyDetails(lat:String,lon:String){

@@ -6,6 +6,6 @@ export interface weatherAndLocationInterface{
     temp_min:Number;
     temp_max:Number;
     clouds:Number;
-    sunrise:Number;
-    sunset:Number;
+    sunrise:any;
+    sunset:any;
 }
