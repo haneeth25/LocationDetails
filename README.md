@@ -1,59 +1,60 @@
-# LocationDetailsFrontend
+# Location Details Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+This is an Angular project that fetches location-based data and provides various features related to nearby places and weather conditions.
 
-## Development server
+## Features
 
-To start a local development server, run:
+### General Features:
+1. Fetches your current location and provides temperature details.
+2. Displays nearby places with available categories.
+3. Lists closest places first, sorted by distance (in km).
+4. Provides a button to open locations directly in Google Maps.
 
-```bash
-ng serve
-```
+### Search Feature:
+- Allows searching for places.
+- For each searched place, it provides:
+  1. Temperature and weather conditions.
+  2. Nearby places categorized appropriately.
+  3. Distance-based sorting of locations.
+  4. Option to open in Google Maps.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Deployment
+This project is hosted on **Netlify**: [Location Details](https://locationdetails.netlify.app/)
 
-## Code scaffolding
+## Backend Repository
+The backend for this project is built with **Spring Boot** and is available on GitHub: [Location Details Backend](https://github.com/haneeth25/LocationDetailsBackend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/frontend.git
+   ```
+2. Navigate to the project folder:
+   ```sh
+   cd frontend
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Run the development server:
+   ```sh
+   ng serve
+   ```
+5. Open the browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
 
-```bash
-ng generate component component-name
-```
+## Technologies Used
+- **Frontend**: Angular, Bootstrap
+- **Backend**: Spring Boot
+- **Hosting**: Netlify (Frontend), GitHub (Backend Code)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Author
+Developed by [Haneeth](https://github.com/haneeth25). Feel free to contribute and raise issues!
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+Let me know if you need any changes!
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
